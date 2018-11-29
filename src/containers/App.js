@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import classes from './App.css';
-import Person from './Person/Person';
+import Person from '../components/Persons/Person/Person';
+// import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
 
 export default class App extends Component {
     magicCount = 100;
@@ -45,13 +46,14 @@ export default class App extends Component {
           persons = (
               <div>
                   {this.state.persons.map(({name, age, key}, ind) =>
-                      <Person
+                          <Person
                           name={name}
                           age={age}
                           key = {key}
                           click = {()=> this.deletePersonHandler(ind)}
-                          changed = {(event) => this.nameChangeHandler(event,key)}
-                      />)}
+                          changed = {(event) => this.nameChangeHandler(event,key)}/>
+                  )
+                  }
               </div>
           );
           btnClass = classes.Red;
